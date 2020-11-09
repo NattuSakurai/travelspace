@@ -1,2 +1,10 @@
 <h1>Photos#index</h1>
 <p>Find me in app/views/photos/index.html.erb</p>
+<% if user_signed_in? %>
+  <%= link_to "ろぐあうと", destroy_user_session_path, method: :delete%>
+  <%= link_to "とうこうする"%>
+  <%= current_user.nickname%>
+<% else %>
+  <%= link_to "とうろくぅ！",  new_user_registration_path%>
+  <%= link_to "さいんいん", new_user_session_path%>
+<% end %>
