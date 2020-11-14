@@ -1,0 +1,20 @@
+<div class="contents row">
+  <div class="container">
+    <h3>投稿する</h3>
+    <%= form_with(model: @photo, local: true) do |f| %>
+      <%= f.text_field :title, placeholder: "タイトル" %>
+      
+      <div class="click-upload">
+          <p>クリックしてファイルをアップロード</p>
+        <%= f.file_field :image, id: "photo-image"%>
+      </div> 
+      <div>
+        <p>場所を選択してください</p>
+        <%= f.collection_select(:place_id, Place.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+      </div>
+      
+      <%= f.text_area :description, placeholder: "text", rows: "10" %>
+      <%= f.submit "SEND" %>
+    <% end %>
+  </div>
+</div>
