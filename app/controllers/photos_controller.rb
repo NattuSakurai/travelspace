@@ -30,6 +30,11 @@ class PhotosController < ApplicationController
     end
   end
 
+  def destroy
+    @photo = Photo.find(params[:id])
+    @photo.destroy
+    redirect_to request.referer
+  end
   private
   def photo_params
     params.require(:photo).permit(:title, :image, :description, :place_id)

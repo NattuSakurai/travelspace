@@ -15,6 +15,7 @@
         <div>
           <%= photo.description %>
           <%= link_to "へんしゅう", edit_photo_path(photo.id), method: :get%>
+          <%= link_to "さくじょ", photo_path(photo.id), method: :delete%>
         </div>
         
     </div>
