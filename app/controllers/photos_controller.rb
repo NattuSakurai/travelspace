@@ -21,6 +21,15 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
   end
 
+  def update
+    @photo = Photo.find(params[:id])
+    if @photo.update(photo_params)
+      redirect_to root_path
+    else
+      render :create
+    end
+  end
+
   private
   def photo_params
     params.require(:photo).permit(:title, :image, :description, :place_id)
