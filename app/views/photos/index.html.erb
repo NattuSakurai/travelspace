@@ -14,7 +14,9 @@
         <%= image_tag photo.image, class: "photo-img"%>
         <div>
           <%= photo.description %>
+          <%= link_to "へんしゅう", edit_photo_path(photo), method: :get%>
         </div>
+        
     </div>
   <% end %>
 </div>

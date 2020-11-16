@@ -1,0 +1,20 @@
+<div class="contents row">
+  <div class="container">
+    <h2>編集する</h2>
+    <%= form_with(model:@photo, url: photos_path(@photo), local: true) do |f| %>
+    <%# <%= form_for(@photo, url: photos_path(@photo), local: true) do |f| %> 
+      <%= f.text_field :title, placeholder: "タイトル" %>
+      <div class="click-upload">
+          <p>クリックしてファイルをアップロード</p>
+        <%= f.file_field :image, id: "photo-image"%>
+      </div> 
+      <div>
+        <p>場所を選択してください</p>
+        <%= f.collection_select(:place_id, Place.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+      </div>
+      
+      <%= f.text_area :description, placeholder: "コメント", rows: "10" %>
+      <%= f.submit "SEND" %>
+    <% end %>
+  </div>
+</div>
