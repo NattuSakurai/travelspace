@@ -1,5 +1,6 @@
+<%= link_to'旅すた',root_path%>
 <h2>詳細画面</h2>
-<p><%= @photo.title%></p>
-<%= image_tag @photo.image%>
-<p><%= @photo.description %></p>
-<%= @photo.place.name%>
+    <p><%= @photo.title%></p>
+    <%= image_tag @photo.image.variant(resize: '500x500')%>
+    <p><%= @photo.description %></p>
+    <%= @photo.place.name %>
